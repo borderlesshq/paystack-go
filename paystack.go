@@ -48,17 +48,18 @@ type Client struct {
 	logger Logger
 	// Services supported by the Paystack API.
 	// Miscellaneous actions are directly implemented on the Client object
-	Customer     *CustomerService
-	Transaction  *TransactionService
-	SubAccount   *SubAccountService
-	Plan         *PlanService
-	Subscription *SubscriptionService
-	Page         *PageService
-	Settlement   *SettlementService
-	Transfer     *TransferService
-	Charge       *ChargeService
-	Bank         *BankService
-	BulkCharge   *BulkChargeService
+	Customer       *CustomerService
+	Transaction    *TransactionService
+	SubAccount     *SubAccountService
+	Plan           *PlanService
+	Subscription   *SubscriptionService
+	Page           *PageService
+	Settlement     *SettlementService
+	Transfer       *TransferService
+	Charge         *ChargeService
+	Bank           *BankService
+	BulkCharge     *BulkChargeService
+	VirtualAccount *VirtualAccountService
 
 	LoggingEnabled bool
 	Log            Logger
@@ -126,6 +127,7 @@ func NewClient(key string, httpClient *http.Client) *Client {
 	c.Charge = (*ChargeService)(&c.common)
 	c.Bank = (*BankService)(&c.common)
 	c.BulkCharge = (*BulkChargeService)(&c.common)
+	c.VirtualAccount = (*VirtualAccountService)(&c.common)
 
 	return c
 }
