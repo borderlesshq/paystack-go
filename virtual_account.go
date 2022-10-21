@@ -63,3 +63,17 @@ func (v *VirtualAccountService) Get(id int) (*VirtualAccount, error) {
 	err := v.client.Call("GET", u, nil, acc)
 	return acc, err
 }
+
+func (v *VirtualAccountService) ReQuery(accountNumber, providerSlug string) (Response, error) {
+	u := fmt.Sprintf("/dedicated_account/requery?account_number=%s&provider_slug=%s", accountNumber, providerSlug)
+	resp := Response{}
+	err := v.client.Call("GET", u, nil, &resp)
+	return resp, err
+}
+
+func (v *VirtualAccountService) Deactivate(id int) (*VirtualAccount, error) {
+	u := fmt.Sprintf("/dedicated_account/%d", id)
+	acc := &VirtualAccount{}
+	err := v.client.Call("DELETE", u, nil, acc)
+	return acc, err
+}
