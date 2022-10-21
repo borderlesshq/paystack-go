@@ -6,7 +6,7 @@ documentation at https://developers.paystack.co/v1.0/reference.
 
 Usage:
 
-	import "github.com/rpip/paystack-go"
+	import "github.com/borderlesshq/paystack-go"
 
 	apiKey := "sk_test_b748a89ad84f35c2f1a8b81681f956274de048bb"
 
