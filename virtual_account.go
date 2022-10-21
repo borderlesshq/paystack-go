@@ -44,21 +44,21 @@ type VirtualAccountList struct {
 }
 
 func (v *VirtualAccountService) Create(req *VirtualAccountRequest) (*VirtualAccount, error) {
-	u := fmt.Sprintf("/dedicated_account")
+	u := "/dedicated_account"
 	acc := &VirtualAccount{}
 	err := v.client.Call("POST", u, req, acc)
 	return acc, err
 }
 
 func (v *VirtualAccountService) List(active bool, currency string) (*VirtualAccountList, error) {
-	u := fmt.Sprintf("/dedicated_account?active=#{active}&currency=#{currency}")
+	u := fmt.Sprintf("/dedicated_account?active=%t&currency=%s", active, currency)
 	accounts := &VirtualAccountList{}
 	err := v.client.Call("GET", u, nil, accounts)
 	return accounts, err
 }
 
 func (v *VirtualAccountService) Get(id int) (*VirtualAccount, error) {
-	u := fmt.Sprintf("/dedicated_account/#{id}")
+	u := fmt.Sprintf("/dedicated_account/%d", id)
 	acc := &VirtualAccount{}
 	err := v.client.Call("GET", u, nil, acc)
 	return acc, err
