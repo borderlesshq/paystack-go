@@ -18,7 +18,7 @@ type TransactionRequest struct {
 	Reference         string   `json:"reference,omitempty"`
 	AuthorizationCode string   `json:"authorization_code,omitempty"`
 	Currency          string   `json:"currency,omitempty"`
-	Amount            float32  `json:"amount,omitempty"`
+	Amount            float64  `json:"amount,omitempty"`
 	Email             string   `json:"email,omitempty"`
 	Plan              string   `json:"plan,omitempty"`
 	InvoiceLimit      int      `json:"invoice_limit,omitempty"`
@@ -45,10 +45,10 @@ type Transaction struct {
 	ID              int                    `json:"id,omitempty"`
 	CreatedAt       string                 `json:"createdAt,omitempty"`
 	Domain          string                 `json:"domain,omitempty"`
-	Metadata        map[string]interface{} `json:"metadata,omitempty"`
+	Metadata        interface{}            `json:"metadata,omitempty"`
 	Status          string                 `json:"status,omitempty"`
 	Reference       string                 `json:"reference,omitempty"`
-	Amount          float32                `json:"amount,omitempty"`
+	Amount          float64                `json:"amount,omitempty"`
 	Message         string                 `json:"message,omitempty"`
 	GatewayResponse string                 `json:"gateway_response,omitempty"`
 	PaidAt          string                 `json:"piad_at,omitempty"`
