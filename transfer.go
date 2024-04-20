@@ -16,6 +16,7 @@ type TransferRequest struct {
 	Currency  string  `json:"currency,omitempty"`
 	Reason    string  `json:"reason,omitempty"`
 	Recipient string  `json:"recipient,omitempty"`
+	Reference string  `json:"reference,omitempty"`
 }
 
 // Transfer is the resource representing your Paystack transfer.
