@@ -184,6 +184,22 @@ func (s *TransferService) CreateRecipient(recipient *TransferRecipient) (*Transf
 	return recipient1, err
 }
 
+// UpdateRecipient creates a new transfer recipient
+// For more details see https://developers.paystack.co/v1.0/reference#create-transferrecipient
+func (s *TransferService) UpdateRecipient(id string, recipient *TransferRecipient) (*TransferRecipient, error) {
+	recipient1 := &TransferRecipient{}
+	err := s.client.Call("PUT", "/transferrecipient/"+id, recipient, recipient1)
+	return recipient1, err
+}
+
+// UpdateRecipient creates a new transfer recipient
+// For more details see https://developers.paystack.co/v1.0/reference#create-transferrecipient
+func (s *TransferService) DeleteRecipient(id string, recipient *TransferRecipient) (*TransferRecipient, error) {
+	recipient1 := &TransferRecipient{}
+	err := s.client.Call("DELETE", "/transferrecipient/"+id, recipient, recipient1)
+	return recipient1, err
+}
+
 // ListRecipients returns a list of transfer recipients.
 // For more details see https://developers.paystack.co/v1.0/reference#list-transferrecipients
 func (s *TransferService) ListRecipients() (*TransferRecipientList, error) {
