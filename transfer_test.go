@@ -27,7 +27,6 @@ func TestInitiateTransfer(t *testing.T) {
 	}
 
 	transfer, err := c.Transfer.Initiate(req)
-
 	if err != nil {
 		t.Error(err)
 	}
@@ -98,7 +97,7 @@ func TestTransferRecipientList(t *testing.T) {
 	//	t.Error(err)
 	//}
 
-	//fmt.Println("ListRecipients <<<<<<<")
+	// fmt.Println("ListRecipients <<<<<<<")
 	// retrieve the transfer recipient list
 	recipients, err := c.Transfer.ListRecipients()
 

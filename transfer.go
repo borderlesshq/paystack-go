@@ -194,9 +194,9 @@ func (s *TransferService) UpdateRecipient(id string, recipient *TransferRecipien
 
 // UpdateRecipient creates a new transfer recipient
 // For more details see https://developers.paystack.co/v1.0/reference#create-transferrecipient
-func (s *TransferService) DeleteRecipient(id string, recipient *TransferRecipient) (*TransferRecipient, error) {
+func (s *TransferService) DeleteRecipient(id string) (*TransferRecipient, error) {
 	recipient1 := &TransferRecipient{}
-	err := s.client.Call("DELETE", "/transferrecipient/"+id, recipient, recipient1)
+	err := s.client.Call("DELETE", "/transferrecipient/"+id, nil, recipient1)
 	return recipient1, err
 }
 
