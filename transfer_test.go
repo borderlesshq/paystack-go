@@ -144,3 +144,41 @@ func createDemoRecipients() ([]*TransferRecipient, error) {
 
 	return []*TransferRecipient{recipient1, recipient2, recipient3}, err
 }
+
+func updateDemoRecipients() ([]*TransferRecipient, error) {
+	recipient1 := &TransferRecipient{
+		Type:          "Nuban",
+		Name:          "Customer 1",
+		Description:   "Demo customer",
+		AccountNumber: "0001234560",
+		BankCode:      "058",
+		Currency:      "NGN",
+		Metadata:      map[string]interface{}{"job": "Carpenter"},
+	}
+
+	recipient2 := &TransferRecipient{
+		Type:          "Nuban",
+		Name:          "Customer 2",
+		Description:   "Demo customer",
+		AccountNumber: "0001234560",
+		BankCode:      "058",
+		Currency:      "NGN",
+		Metadata:      map[string]interface{}{"job": "Chef"},
+	}
+
+	recipient3 := &TransferRecipient{
+		Type:          "Nuban",
+		Name:          "Customer 2",
+		Description:   "Demo customer",
+		AccountNumber: "0001234560",
+		BankCode:      "058",
+		Currency:      "NGN",
+		Metadata:      map[string]interface{}{"job": "Plumber"},
+	}
+
+	_, err := c.Transfer.CreateRecipient(recipient1)
+	_, err = c.Transfer.CreateRecipient(recipient2)
+	_, err = c.Transfer.CreateRecipient(recipient3)
+
+	return []*TransferRecipient{recipient1, recipient2, recipient3}, err
+}
