@@ -111,7 +111,7 @@ func NewClient(key string, httpClient *http.Client) *Client {
 		client:         httpClient,
 		key:            key,
 		baseURL:        u,
-		LoggingEnabled: true,
+		LoggingEnabled: false,
 		Log:            log.New(os.Stderr, "", log.LstdFlags),
 	}
 
@@ -144,7 +144,6 @@ func (c *Client) Call(method, path string, body, v interface{}) error {
 	}
 	u, _ := c.baseURL.Parse(path)
 	req, err := http.NewRequest(method, u.String(), buf)
-
 	if err != nil {
 		if c.LoggingEnabled {
 			c.Log.Printf("Cannot create Paystack request: %v\n", err)
