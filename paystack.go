@@ -111,7 +111,7 @@ func NewClient(key string, httpClient *http.Client) *Client {
 		client:         httpClient,
 		key:            key,
 		baseURL:        u,
-		LoggingEnabled: false,
+		LoggingEnabled: true,
 		Log:            log.New(os.Stderr, "", log.LstdFlags),
 	}
 
