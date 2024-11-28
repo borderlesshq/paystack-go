@@ -48,7 +48,7 @@ type TransferRecipient struct {
 	ID            int                    `json:"id,omitempty"`
 	CreatedAt     string                 `json:"createdAt,omitempty"`
 	UpdatedAt     string                 `json:"updatedAt,omitempty"`
-	Type          string                 `json:",omitempty"`
+	Type          string                 `json:"type,omitempty"`
 	Name          string                 `json:"name,omitempty"`
 	Metadata      Metadata               `json:"metadata,omitempty"`
 	AccountNumber string                 `json:"account_number,omitempty"`
